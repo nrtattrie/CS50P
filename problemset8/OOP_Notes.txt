@@ -1,0 +1,62 @@
+
+# ClASSES:
+# OBJECTS:
+# METHODS: a funciton inside a class
+
+
+
+class Student:
+    #METHOD - initialize an object
+    def __init__(self, name, house):
+        self.name = name
+        self.house = house
+
+    #METHOD - enables printing to a string
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+
+
+    #METHOD - return a string of the class object
+    def __str__(self):
+        return f"{self.name} from {self.house}"
+
+    #METHOD - GETTER for name
+    @property
+    def name(self):
+        return self._name
+
+    #METHOD - SETTER for name
+    @name.setter
+    def name(self, name):
+        if not name:
+            raise ValueError("Missing name")
+        #the underscore does not have any specific funciton, rather it is used to not confuse the program with the init method
+        self._name = name
+
+
+    #METHOD - GETTER for house
+    @property
+    def house(self):
+        return self._house
+
+    #METHOD - SETTER for house
+    @house.setter
+    def house(self, house):
+        if house not in ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]:
+            raise ValueError("Invalid house")
+        #the underscore does not have any specific funciton, rather it is used to not confuse the program with the init method
+        self._house = house
+
+
+    # You can call this class method without the need of instantiating a class object
+    @classmethod
+    def get(cls):
+        name = input("Name: ")
+        house = input("House: ")
+        return cls(name, house)
+
+
+
+def main():
+    student = Student.get()
+    print(student)

@@ -1,0 +1,21 @@
+
+
+re — Regular expression operations: https://docs.python.org/3/library/re.html
+
+regular expressions 101 Website: https://regex101.com/
+
+regexr website: regexr.com
+
+validators library: https://github.com/insightindustry/validator-collection
+
+Capturing groups:
+    r“(?P<group_name>...), variable_name”
+
+
+.     any character except a new line
+*     0 or more repetitions
++     1 or more repetitions
+?     0 or 1 repetition
+{m}   m repetitions
+{m,n} m-n repetitions
+

@@ -1,0 +1,29 @@
+import pytest
+from working import convert
+
+def test_valid():
+    assert convert("9 AM to 5 PM") == "09:00 to 17:00"
+    assert convert("9:00 AM to 5 PM") == "09:00 to 17:00"
+    assert convert("9 AM to 5:00 PM") == "09:00 to 17:00"
+    assert convert("9:00 AM to 5:00 PM") == "09:00 to 17:00"
+    assert convert("10 AM to 8:50 PM") == "10:00 to 20:50"
+    assert convert("1:00 PM to 8:00 AM") == "13:00 to 08:00"
+    assert convert("10:30 PM to 8:00 AM") == "22:30 to 08:00"
+
+
+def test_invalid():
+    with pytest.raises(ValueError):
+        convert("cat")
+    with pytest.raises(ValueError):
+        convert("9:60 AM to 5 PM")
+    with pytest.raises(ValueError):
+        convert("9:00 AM to 5:60 PM")
+    with pytest.raises(ValueError):
+        convert("13 AM to 5 PM")
+    with pytest.raises(ValueError):
+        convert("1:00 AM to 0 PM")
+    with pytest.raises(ValueError):
+        convert("1:00 AM to 0 AM")
+    with pytest.raises(ValueError):
+        convert("1:00 AM - 9 PM")
+
